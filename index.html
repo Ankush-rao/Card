@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anurag & Dr. Sucharitra - Wedding Invite</title>
+
+    <!-- Google Fonts: Cormorant Garamond & Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Manrope:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- GSAP & Lenis for Smooth Scrolling -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.5/bundled/lenis.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Wood Texture Side Borders -->
+    <div class="side-frame frame-left"></div>
+    <div class="side-frame frame-right"></div>
+
+    <!-- Lively Corner Decorations blending with the theme -->
+    <div class="decor-corner decor-tl"></div>
+    <div class="decor-corner decor-tr"></div>
+    <div class="decor-corner decor-bl"></div>
+    <div class="decor-corner decor-br"></div>
+
+    <main class="main-content">
+
+        <!-- 1. HERO SECTION (Minimal names in the sky) -->
+        <section class="section hero-section">
+            <div class="mandala-pattern"></div>
+
+            <div class="lanterns-overlay">
+                <!-- 6 Layers/Stacks for that deep 3D parallax feel -->
+                <div class="lantern-stack" id="lantern-stack-1"></div>
+                <div class="lantern-stack" id="lantern-stack-2"></div>
+                <div class="lantern-stack" id="lantern-stack-3"></div>
+                <div class="lantern-stack" id="lantern-stack-4"></div>
+                <div class="lantern-stack" id="lantern-stack-5"></div>
+                <div class="lantern-stack" id="lantern-stack-6"></div>
+            </div>
+
+            <div class="hero-content">
+                <div class="ganesha"
+                    style="font-family: Arial, sans-serif; font-size: 3.5rem; color: var(--gold); text-shadow: 0 0 10px rgba(212, 175, 55, 0.4); margin-bottom: 5px;">
+                    ॐ
+                </div>
+
+                <h1 class="couple-names" style="margin-top: 25px; font-size: 4rem;">Anurag</h1>
+                <div class="weds-text">
+                    <span class="text" style="font-size: 1.5rem; font-style: italic; font-weight: 300; letter-spacing: 5px;">WEDS</span>
+                </div>
+                <h1 class="couple-names" style="font-size: 4rem;">Sucharitra</h1>
+            </div>
+        </section>
+
+
+        <!-- 2. INVITE SECTION (Fountain background & Teal Pattern) -->
+        <section class="section invite-section">
+            <!-- This section uses fountain-view.jpeg then teal-pattern.jpeg -->
+            
+            <div class="invite-header-content">
+                <p class="blessing-text" style="margin-top: 10px;">With the heavenly blessings of</p>
+                <p class="parents-text">Smt. Sarita Yadav & Sh. Ravinder Singh</p>
+                
+                <div class="invite-label" style="margin: 40px 0;">
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 4rem; letter-spacing: 12px; font-weight: 300; opacity: 0.9;">INVITE</h2>
+                </div>
+
+                <p class="blessing-text">You to join us in the wedding celebrations of</p>
+
+                <h1 class="couple-names-stylized" style="font-size: 3.5rem; margin: 20px 0;">Anurag & Sucharitra</h1>
+                
+                <p class="blessing-text">Daughter of</p>
+                <p class="parents-text">Smt. Sushila Devi & Sh. Ramcharitra Yadav</p>
+
+                <div class="date-highlight" style="margin-top: 40px; background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2);">
+                    <div class="date-month">April</div>
+                    <div class="date-row">
+                        <span class="date-day-name">Thursday</span>
+                        <span class="date-num">30</span>
+                        <span class="date-time">At 7 PM</span>
+                    </div>
+                    <div class="date-year">2026</div>
+                </div>
+
+                <div class="venue-highlight" style="margin-top: 30px;">
+                    <p><strong>Venue: Royal Pepper</strong></p>
+                    <p style="font-size: 0.9rem;">87th mile stone, Delhi Jaipur Highway, N.H.-8, Rewari, Haryana- 125011</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. EVENTS SECTION (Pink Pattern Background) -->
+        <section class="section events-section">
+            <h2 class="section-title text-gold">Wedding Festivities</h2>
+
+            <div class="events-grid">
+                <!-- Haldi & Ladies Sangeet -->
+                <div class="event-card">
+                    <h3 class="event-name">Haldi & Ladies Sangeet</h3>
+                    <p class="event-date">28th April, 2026</p>
+                    <p class="event-desc">Join us for a vibrant celebration of colors and music.</p>
+                    <div class="event-details">
+                        <p><strong>Venue:</strong> Gymkhana club, Sector 4, Rewari</p>
+                        <p><strong>Time:</strong> 12:00 PM Onwards</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Gymkhana+club,+Sector+4,+Rewari"
+                        target="_blank" class="route-link">SEE LOCATION <span>→</span></a>
+                </div>
+
+                <!-- Chaak -->
+                <div class="event-card" style="margin-top: 40px;"> <!-- Staggered visually -->
+                    <h3 class="event-name">Chaak Ceremony</h3>
+                    <p class="event-date">29th April, 2026</p>
+                    <p class="event-desc">A beautiful traditional ritual surrounded by loved ones.</p>
+                    <div class="event-details">
+                        <p><strong>Venue:</strong> House- 1174, Sector 4, Rewari</p>
+                        <p><strong>Time:</strong> 4:15 PM Onwards</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=House+1174,+Sector+4,+Rewari"
+                        target="_blank" class="route-link">SEE LOCATION <span>→</span></a>
+                </div>
+
+                <!-- Wedding Day -->
+                <div class="event-card">
+                    <h3 class="event-name">The Wedding Day</h3>
+                    <p class="event-date">30th April, 2026</p>
+                    <div class="wedding-timeline">
+                        <div class="timeline-row"><span>Bhaat</span> <span>12:15 PM</span></div>
+                        <div class="timeline-row"><span>Lagan</span> <span>1:15 PM</span></div>
+                        <div class="timeline-row"><span>Lunch</span> <span>2:15 PM</span></div>
+                        <div class="timeline-row"><span>Dinner</span> <span>7:15 PM</span></div>
+                    </div>
+                    <div class="event-details" style="margin-top: 15px;">
+                        <p><strong>Venue:</strong> Royal Pepper</p>
+                        <p>87th Mile Stone, Delhi Jaipur Highway</p>
+                    </div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Royal+Pepper,+87th+Mile+Stone,+Delhi+Jaipur+Highway,+N.H.-8,+Rewari,+Haryana+125011"
+                        target="_blank" class="route-link">SEE LOCATION <span>→</span></a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 3. GALLERY SECTION -->
+        <section class="section gallery-section">
+            <div class="gallery-bg-pattern"></div>
+
+            <h2 class="section-title text-navy">Glimpses</h2>
+
+            <div class="mandala-frame">
+                <div class="gallery-carousel">
+                    <!-- Your beautiful photos -->
+                    <img src="Glimplses/glimpse1.jpeg" alt="Couple 1" class="carousel-img active">
+                    <img src="Glimplses/glimpse2.jpeg" alt="Couple 2" class="carousel-img">
+                    <img src="Glimplses/glimpse3.jpeg" alt="Couple 3" class="carousel-img">
+                </div>
+                <div class="carousel-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+            <div class="vintage-car-container">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M496 288H464V216C464 198.3 449.7 184 432 184H376L324.9 120.3C311.5 103.5 291 96 269.7 96H160C124.6 96 96 124.6 96 160V184H48C21.5 184 0 205.5 0 232V320C0 328.8 7.164 336 16 336H49.11C54.43 363.3 78.43 384 107.1 384C137.6 384 161.6 363.3 166.9 336H345.1C350.4 363.3 374.4 384 404.1 384C435.6 384 459.6 363.3 464.9 336H496C504.8 336 512 328.8 512 320V304C512 295.2 504.8 288 496 288zM108 344C90.33 344 76 329.7 76 312C76 294.3 90.33 280 108 280C125.7 280 140 294.3 140 312C140 329.7 125.7 344 108 344zM240 184H144V160C144 151.2 151.2 144 160 144H240V184zM320 184H288V144H304L320 164V184zM404 344C386.3 344 372 329.7 372 312C372 294.3 386.3 280 404 280C421.7 280 436 294.3 436 312C436 329.7 421.7 344 404 344z" />
+                </svg>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- 5. FOOTER / NIGHT SKY -->
+        <section class="section footer-section">
+            <div class="stars-bg"></div>
+
+            <div class="footer-content">
+                <h2 class="section-title text-gold" style="margin-bottom: 20px;">Follow the Action</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--cream);">The Countdown Begins...</p>
+
+                <div class="countdown-container">
+                    <div class="time-box">
+                        <span id="days" class="num">00</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours" class="num">00</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="mins" class="num">00</span>
+                        <span class="label">Mins</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="secs" class="num">00</span>
+                        <span class="label">Secs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="moving-car-bottom">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M496 288H464V216C464 198.3 449.7 184 432 184H376L324.9 120.3C311.5 103.5 291 96 269.7 96H160C124.6 96 96 124.6 96 160V184H48C21.5 184 0 205.5 0 232V320C0 328.8 7.164 336 16 336H49.11C54.43 363.3 78.43 384 107.1 384C137.6 384 161.6 363.3 166.9 336H345.1C350.4 363.3 374.4 384 404.1 384C435.6 384 459.6 363.3 464.9 336H496C504.8 336 512 328.8 512 320V304C512 295.2 504.8 288 496 288zM108 344C90.33 344 76 329.7 76 312C76 294.3 90.33 280 108 280C125.7 280 140 294.3 140 312C140 329.7 125.7 344 108 344zM240 184H144V160C144 151.2 151.2 144 160 144H240V184zM320 184H288V144H304L320 164V184zM404 344C386.3 344 372 329.7 372 312C372 294.3 386.3 280 404 280C421.7 280 436 294.3 436 312C436 329.7 421.7 344 404 344z" />
+                </svg>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
