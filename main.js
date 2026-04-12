@@ -3,9 +3,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 // 1. LENIS SMOOTH SCROLL INIT
 const lenis = new Lenis({
-    duration: 1.5,
+    duration: 1.8,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smooth: true
+    smooth: true,
+    lerp: 0.05 // Smoother linear interpolation
 });
 
 function raf(time) {
@@ -21,6 +22,22 @@ gsap.ticker.add((time) => {
 });
 gsap.ticker.lagSmoothing(0, 0);
 
+// Global Section Reveal for smoother cinematic flow
+gsap.utils.toArray('.section').forEach(section => {
+    gsap.from(section, {
+        opacity: 0,
+        y: 20,
+        duration: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: section,
+            start: "top 90%",
+            toggleActions: "play none none reverse"
+        }
+    });
+});
+
+
 
 // 2. HERO ANIMATIONS - Layered 3D Scroll Parallax Lanterns
 const lanternStacks = document.querySelectorAll('.lantern-stack');
@@ -28,8 +45,8 @@ const lanternStacks = document.querySelectorAll('.lantern-stack');
 lanternStacks.forEach((stack, index) => {
     // 1. Precise consistent placement (6 layers)
     const hPositions = [3, 97, 10, 90, 50, 48]; // Pinned to the very edges + center
-    const vPositions = [10, 40, 70, 20, 50, 80]; 
-    
+    const vPositions = [10, 40, 70, 20, 50, 80];
+
     const posX = hPositions[index];
     const posY = vPositions[index];
     const isCenter = Math.abs(50 - posX) < 15;
@@ -40,19 +57,19 @@ lanternStacks.forEach((stack, index) => {
     // 2. Populate stack with consistent, depth-aware clusters
     // Edge stacks get more lanterns (higher density)
     const count = isCenter ? 4 : 9;
-    
+
     for (let i = 0; i < count; i++) {
         const lantern = document.createElement('div');
         lantern.className = 'lantern-item';
-        
+
         // Consistent offsets (deterministic) instead of random(200)
         // This makes them stay the same every load
         const offsetX = (Math.sin(i * 1.5) * 120) + 100;
         const offsetY = (Math.cos(i * 0.8) * 200) + 150;
-        
+
         lantern.style.left = `${offsetX}px`;
         lantern.style.top = `${offsetY}px`;
-        
+
         stack.appendChild(lantern);
 
         // Styling based on center proximity
@@ -60,8 +77,8 @@ lanternStacks.forEach((stack, index) => {
         const baseOpacity = isCenter ? 0.4 : 0.9;
         const baseRotation = (i % 2 === 0 ? 1 : -1) * (15 + (i % 5) * 5);
 
-        gsap.set(lantern, { 
-            scale: baseScale, 
+        gsap.set(lantern, {
+            scale: baseScale,
             opacity: baseOpacity,
             rotation: baseRotation
         });
@@ -76,7 +93,7 @@ lanternStacks.forEach((stack, index) => {
             ease: "sine.inOut",
             delay: i * 0.2
         });
-        
+
         // Flicker
         gsap.to(lantern, {
             opacity: baseOpacity * 0.75,
