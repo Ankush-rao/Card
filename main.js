@@ -252,23 +252,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (bgMusic) {
         bgMusic.volume = 0.3; // Set a soothing, lower volume
         
+        const playMusic = () => {
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    // Play succeeded, remove all interaction listeners
+                    ['click', 'scroll', 'touchstart', 'keydown'].forEach(evt => {
+                        document.removeEventListener(evt, playMusic);
+                    });
+                }).catch(err => {
+                    // Play blocked by browser, wait for next interaction
+                    console.log("Audio waiting for user interaction...");
+                });
+            }
+        };
+
         // Attempt to play on load
-        let playPromise = bgMusic.play();
-        if (playPromise !== undefined) {
-            playPromise.catch(error => {
-                // Auto-play was prevented by browser policy.
-                // Add event listener to play on first user interaction.
-                const playOnInteraction = () => {
-                    bgMusic.play();
-                    // Remove listeners once played
-                    ['click', 'scroll', 'touchstart', 'mousemove'].forEach(evt => 
-                        document.removeEventListener(evt, playOnInteraction)
-                    );
-                };
-                ['click', 'scroll', 'touchstart', 'mousemove'].forEach(evt => 
-                    document.addEventListener(evt, playOnInteraction, { once: true })
-                );
-            });
-        }
+        playMusic();
+
+        // Add robust interaction listeners
+        ['click', 'scroll', 'touchstart', 'keydown'].forEach(evt => {
+            document.addEventListener(evt, playMusic);
+        });
     }
 });
