@@ -245,3 +245,30 @@ setInterval(() => {
         document.getElementById("secs").innerText = secs.toString().padStart(2, '0');
     }
 }, 1000);
+
+// AUDIO AUTOPLAY LOGIC (Soothing Tone)
+document.addEventListener('DOMContentLoaded', () => {
+    const bgMusic = document.getElementById('bg-music');
+    if (bgMusic) {
+        bgMusic.volume = 0.3; // Set a soothing, lower volume
+        
+        // Attempt to play on load
+        let playPromise = bgMusic.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                // Auto-play was prevented by browser policy.
+                // Add event listener to play on first user interaction.
+                const playOnInteraction = () => {
+                    bgMusic.play();
+                    // Remove listeners once played
+                    ['click', 'scroll', 'touchstart', 'mousemove'].forEach(evt => 
+                        document.removeEventListener(evt, playOnInteraction)
+                    );
+                };
+                ['click', 'scroll', 'touchstart', 'mousemove'].forEach(evt => 
+                    document.addEventListener(evt, playOnInteraction, { once: true })
+                );
+            });
+        }
+    }
+});

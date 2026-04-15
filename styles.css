@@ -178,8 +178,8 @@ body {
 .parents-text {
     font-size: 1.5rem;
     /* Increased */
-    color: var(--navy);
-    opacity: 0.9;
+    color: black;
+    font-weight: bold;
     margin: 8px 0;
     letter-spacing: 0.8px;
     font-family: var(--font-serif);
@@ -207,7 +207,8 @@ body {
     font-family: var(--font-serif);
     font-size: 2rem;
     /* Increased */
-    color: var(--navy);
+    color: black;
+    font-weight: bold;
     font-style: italic;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
@@ -224,7 +225,8 @@ body {
 .blessing-text {
     font-family: var(--font-serif);
     font-style: italic;
-    color: var(--navy);
+    color: black;
+    font-weight: bold;
     /* Darker for visibility */
     letter-spacing: 1.8px;
     font-size: 1.3rem;
@@ -248,11 +250,12 @@ body {
     align-items: center;
     justify-content: center;
     gap: 15px;
-    border-top: 2px solid var(--navy);
+    border-top: 2px solid black;
     /* Darker borders */
-    border-bottom: 2px solid var(--navy);
+    border-bottom: 2px solid black;
     padding: 15px 0;
-    color: var(--navy);
+    color: black;
+    font-weight: bold;
 }
 
 .date-highlight .date-day-name,
@@ -265,7 +268,7 @@ body {
     font-size: 3.5rem;
     font-weight: 700;
     line-height: 1;
-    color: var(--navy);
+    color: black;
 }
 
 
@@ -409,9 +412,9 @@ body {
 
 .invite-header-content .parents-text {
     font-size: 2.0rem;
-    color: var(--navy);
+    color: black;
     margin: 15px 0;
-    font-weight: 500;
+    font-weight: bold;
     transition: all 0.3s ease;
 }
 
@@ -503,7 +506,8 @@ body {
     line-height: 1.5;
     margin-bottom: 25px;
     font-style: italic;
-    color: #555;
+    color: black;
+    font-weight: bold;
     min-height: 40px;
 }
 
@@ -513,6 +517,8 @@ body {
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 25px;
+    color: black;
+    font-weight: bold;
 }
 
 .event-details p {
@@ -531,7 +537,8 @@ body {
     border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
     padding: 5px 0;
     font-size: 0.85rem;
-    font-weight: 600;
+    font-weight: bold;
+    color: black;
 }
 
 .timeline-row:last-child {
