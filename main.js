@@ -147,31 +147,78 @@ gsap.from(".event-card", {
 
 // 4. GALLERY SECTION
 // Gallery Carousel Logic
+const carouselContainer = document.querySelector('.gallery-carousel');
 const images = document.querySelectorAll('.carousel-img');
 const dots = document.querySelectorAll('.dot');
 let currentImg = 0;
+let autoScrollInterval;
 
-function showNextImage() {
+function showImage(index) {
     images[currentImg].classList.remove('active');
     dots[currentImg].classList.remove('active');
 
-    currentImg = (currentImg + 1) % images.length;
+    currentImg = (index + images.length) % images.length;
 
     images[currentImg].classList.add('active');
     dots[currentImg].classList.add('active');
 }
-setInterval(showNextImage, 4000);
+
+function showNextImage() {
+    showImage(currentImg + 1);
+}
+
+function showPrevImage() {
+    showImage(currentImg - 1);
+}
+
+function startAutoScroll() {
+    stopAutoScroll();
+    autoScrollInterval = setInterval(showNextImage, 4000);
+}
+
+function stopAutoScroll() {
+    if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+    }
+}
+
+// Start auto-scroll initially
+startAutoScroll();
 
 // Allow clicking on dots
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-        images[currentImg].classList.remove('active');
-        dots[currentImg].classList.remove('active');
-        currentImg = index;
-        images[currentImg].classList.add('active');
-        dots[currentImg].classList.add('active');
+        showImage(index);
+        startAutoScroll(); // Reset timer on manual interaction
     });
 });
+
+// Touch / Swipe support for mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+if (carouselContainer) {
+    carouselContainer.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopAutoScroll(); // Pause auto-scroll while interacting
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+        startAutoScroll(); // Resume auto-scroll after interaction
+    }, { passive: true });
+}
+
+function handleSwipe() {
+    const swipeThreshold = 50; // minimum distance for a swipe
+    if (touchEndX < touchStartX - swipeThreshold) {
+        showNextImage(); // Swipe left
+    }
+    if (touchEndX > touchStartX + swipeThreshold) {
+        showPrevImage(); // Swipe right
+    }
+}
 
 // Vintage Car Parallax/Drive in Gallery
 gsap.to(".vintage-car-container", {
@@ -251,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bgMusic = document.getElementById('bg-music');
     if (bgMusic) {
         bgMusic.volume = 0.3; // Set a soothing, lower volume
-        
+
         const playMusic = () => {
             if (bgMusic.paused) {
                 bgMusic.play().then(() => {
